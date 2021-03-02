@@ -1,0 +1,13 @@
+com\example\lojavirtual\model\Adm.class
+com\example\lojavirtual\controller\CarrinhoController.class
+com\example\lojavirtual\repository\CarrinhoRepository.class
+com\example\lojavirtual\model\Cliente.class
+com\example\lojavirtual\model\Login.class
+com\example\lojavirtual\controller\AdmController.class
+com\example\lojavirtual\model\Produto.class
+com\example\lojavirtual\repository\AdmRepository.class
+com\example\lojavirtual\repository\ClienteRepository.class
+com\example\lojavirtual\repository\ProdutoRepository.class
+com\example\lojavirtual\PrincipalApplication.class
+com\example\lojavirtual\controller\ClienteController.class
+com\example\lojavirtual\model\Carrinho.class
