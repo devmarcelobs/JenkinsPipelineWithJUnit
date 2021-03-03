@@ -23,5 +23,10 @@ pipeline{
                 }
             }
         }
+        stage("Integration"){
+            steps{
+                junit 'test-results.xml'
+            }
+        }
     }
 }
