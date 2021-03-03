@@ -23,10 +23,5 @@ pipeline{
                 }
             }
         }
-        stage("Integration"){
-            steps{
-                junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
-            }
-        }
     }
 }
