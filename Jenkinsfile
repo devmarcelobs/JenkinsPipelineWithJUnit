@@ -23,5 +23,8 @@ pipeline{
                 }
             }
         }
+        stage("Aggregate Report"){
+            build job: 'lojaVirtualTest'
+        }
     }
 }
