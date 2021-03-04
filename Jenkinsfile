@@ -25,7 +25,7 @@ pipeline{
         }
         stage("Integration"){
             steps{
-                junit skipPublishingChecks: true, testResults: '**/target/surefire-reports/TEST-*.xml'
+                junit testResults: '**/target/surefire-reports/TEST-*.xml'
             }
         }
     }
