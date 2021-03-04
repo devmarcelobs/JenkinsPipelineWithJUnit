@@ -19,7 +19,7 @@ pipeline{
 
             post {
                 success {
-                    junit checksName: 'Testss', '**/target/surefire-reports/TEST-*.xml'
+                    junit checksName: 'Testss', testResults: '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
             }
