@@ -13,19 +13,15 @@ pipeline{
         }
         stage('Build') {
             steps {
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                //sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true clean verify"
             }
 
             post {
                 success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
+                    junit checksName: 'Testss', '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
-            }
-        }
-        stage("Integration"){
-            steps{
-                junit testResults: '**/target/surefire-reports/TEST-*.xml'
             }
         }
     }
