@@ -23,5 +23,8 @@ pipeline{
                 }
             }
         }
+        stage("Integration"){
+            junit skipPublishingChecks: true, testResults: '**/target/surefire-reports/TEST-*.xml'
+        }
     }
 }
