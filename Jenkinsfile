@@ -25,7 +25,9 @@ pipeline{
             }
         }
         stage('Deploy'){
-            sh 'scp target/lojavirtual-0.0.1-SNAPSHOT.jar root@172.18.0.4:/var/artifacts'
+            steps{
+                sh 'scp target/lojavirtual-0.0.1-SNAPSHOT.jar root@172.18.0.4:/var/artifacts'
+            }
         }
     }
 }
