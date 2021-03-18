@@ -33,6 +33,7 @@ pipeline{
                     export JAVA_HOME \
                     export JRE_HOME \
                     export PATH'
+                sh 'sshpass -p root ssh -t -t root@172.18.0.4 java -jar /var/artifacts/lojavirtual-0.0.1-SNAPSHOT.jar'
             }
         }
     }
