@@ -32,8 +32,7 @@ pipeline{
                     PATH=$PATH:$HOME/bin:$JAVA_HOME/bin \
                     export JAVA_HOME \
                     export JRE_HOME \
-                    export PATH \
-                    java -jar /var/artifacts/lojavirtual-0.0.1-SNAPSHOT.jar'
+                    export PATH'
             }
         }
     }
