@@ -26,7 +26,7 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh 'ssh root@172.18.0.4'
+                sh 'sshpass -p root ssh root@172.18.0.4'
             }
         }
     }
