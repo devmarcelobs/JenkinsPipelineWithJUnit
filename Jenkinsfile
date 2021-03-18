@@ -24,10 +24,10 @@ pipeline{
                 }
             }
         }
-        stage('Deploy'){
-            steps{
-                sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/lojaVirtualTest/target/*.jar root@172.18.0.4:/var'
-            }
+    }
+    node{
+        sshagent (credentials:['ssh-root-password']){
+            sh 'scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/lojaVirtualTest/target/*.jar root@172.18.0.4:/var/artifacts'
         }
     }
 }
