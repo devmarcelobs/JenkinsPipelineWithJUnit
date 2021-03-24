@@ -35,7 +35,7 @@ pipeline{
             steps{
                 sh 'sshpass -p root scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/lojaVirtualTest/target/*.jar root@172.18.0.5:/var'
                 sh 'sshpass -p root ssh -t -t root@172.18.0.4 \
-                    /usr/local/openjdk-8/bin/java -jar /var/artifacts/lojavirtual-0.0.1-SNAPSHOT.jar'
+                    /usr/local/openjdk-8/bin/java -jar /var/lojavirtual-0.0.1-SNAPSHOT.jar'
             }
         }
     }
