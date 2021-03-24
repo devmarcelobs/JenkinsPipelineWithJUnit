@@ -24,6 +24,13 @@ pipeline{
                 }
             }
         }
+        stage('SonarQube Analysis'){
+            steps{
+                withSonarQubeEnv(credentialsId: '', installationName: 'sonarqubescanner') { 
+                    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+                }
+            }
+        }
         stage('Deploy'){
             steps{
                 sh 'sshpass -p root scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/lojaVirtualTest/target/*.jar root@172.18.0.4:/var/artifacts'
