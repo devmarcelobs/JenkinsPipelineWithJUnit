@@ -31,6 +31,11 @@ pipeline{
                 }
             }
         }
+        stage("SonarQube Quality Gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
         /*stage('Deploy'){
             steps{
                 sh 'sshpass -p root scp -v -o StrictHostKeyChecking=no /var/jenkins_home/workspace/lojaVirtualTest/target/*.jar root@172.18.0.5:/var'
