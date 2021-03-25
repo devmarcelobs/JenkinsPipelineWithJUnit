@@ -24,21 +24,16 @@ pipeline{
                 }
             }
         }
-        stage('SonarQube Analysis'){
+        stage('SonarQube Analysis and Quality Gate'){
             steps{
                 withSonarQubeEnv(credentialsId: 'admintoken-sonarqube', installationName: 'sonarqubescanner') { 
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
-            }
-        }
-        stage("SonarQube Quality Gate") {
-            steps {
-                script{
-                    def qualitygate = waitForQualityGate()
-                    if (qualitygate.status != "OK") {
-                        error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-                    } 
-                }
+
+                def qualitygate = waitForQualityGate()
+                if (qualitygate.status != "OK") {
+                    error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+                } 
             }
         }
         /*stage('Deploy'){
