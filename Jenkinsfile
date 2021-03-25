@@ -30,6 +30,8 @@ pipeline{
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
 
+                sleep(20)
+                
                 script{
                     def qualitygate = waitForQualityGate()
                     if (qualitygate.status != "OK") {
