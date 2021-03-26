@@ -29,8 +29,6 @@ pipeline{
                 withSonarQubeEnv(credentialsId: 'admintoken-sonarqube', installationName: 'sonarqubescanner') { 
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
-
-                sleep(20)
                 
                 script{
                     def qualitygate = waitForQualityGate()
